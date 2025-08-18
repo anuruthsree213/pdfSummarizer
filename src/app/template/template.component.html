@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>AI PDF Summarizer</h1>
+
+  <!-- Upload Section -->
+  <div class="upload-box">
+    <!-- Styled File Upload -->
+    <label for="fileUpload" class="file-label">Choose PDF</label>
+    <input id="fileUpload" type="file" (change)="onFileSelected($event)" accept="application/pdf" hidden>
+
+    <!-- Show file name -->
+    <span class="file-name" *ngIf="selectedFile">{{ selectedFile.name }}</span>
+
+    <!-- Summarize button -->
+    <button (click)="summarizePdf()" [disabled]="!selectedFile">Summarize PDF</button>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loader">
+    <p>Summarizing your document...</p>
+  </div>
+
+  <!-- Results -->
+  <div *ngIf="summary" class="result-box">
+    <h2>Summary</h2>
+    <p>{{ summary }}</p>
+    <button (click)="downloadSummary()">Download</button>
+  </div>
+</div>
