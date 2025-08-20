@@ -7,13 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class PdfServiceService {
 
-  private apiUrl = "https://anuruthsv-pdfSummarizer-backend.hf.space/summarize-pdf";
+  private apiUrl = "https://anuruthsv-pdfsummarizer-backend.hf.space";
 
   constructor(private http: HttpClient) {}
 
   summarizePdf(file: File): Observable<any> {
     const formData = new FormData();
     formData.append('file', file);
-    return this.http.post<any>(this.apiUrl, formData);
+    return this.http.post<any>(`${this.apiUrl}/summarize-pdf/`, formData);
   }
 }
