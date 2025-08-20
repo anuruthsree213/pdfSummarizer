@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PdfServiceService {
 
-  private apiUrl = 'http://127.0.0.1:8000/summarize-pdf/';
+  private apiUrl = "https://anuruthsv-pdfSummarizer-backend.hf.space/summarize-pdf";
 
   constructor(private http: HttpClient) {}
 
